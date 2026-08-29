@@ -54,13 +54,23 @@ body{
 }
 
 .nav-container{
-    background: var(--nav-bag);
+    background: rgb(7, 7, 24);
     display: flex;
     position: relative;
     padding:12px 50px ;
     gap: 25px;
     align-items: center;
     border-bottom: 1px solid var(--line);
+    position: relative;
+}
+.nav-container::after{
+     content: '';
+    position: absolute;
+    bottom:  0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #6ea8fe, transparent);
 }
 .navlinks{
     display: flex;
@@ -147,7 +157,7 @@ body{
 }
 
 .search-input input:focus{
-    border-color: var(--bleuColor);
+    border-color: #6ea8fe;
 }
 
 /*hero*/

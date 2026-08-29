@@ -9,10 +9,6 @@ type ContextType = {
         players:Player[],
         setloading:React.Dispatch<React.SetStateAction<boolean>>,
         loading:boolean,
-        
 }
 const Context = createContext<ContextType | undefined>(undefined)
-
-
-
 export default Context
