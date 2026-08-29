@@ -1,25 +1,26 @@
-import { useContext } from 'react'
-import Context from '../context/Context'
 import { useNavigate } from 'react-router-dom'
+import type { Player } from '../../models/Player'
+import type { Team } from '../../models/Team'
+import useFootball from '../../hooks/useFootball'
 const Suggestions = () => {
-    const {Team, Players} = useContext(Context)
+    const {team, players} = useFootball()
     const navigate = useNavigate()
   return (
      <div className="search-suggestion">
-            {Players.slice(0, 5).map((players) => (
-                <div key={players.player.id} className="details" onClick={()=>
-                  navigate(`/players/${players.player.id}`)
+            {players.slice(0, 5).map((player:Player) => (
+                <div key={player.id} className="details" onClick={()=>
+                  navigate(`/players/${player.id}`)
                 }>
                   
                   <div className="image">
-                    <img src={players.player.photo} loading='lazy' /> 
+                    <img src={player.photo} loading='lazy' /> 
                  </div>
 
                   <div className="name">
                       <h3>
-                        {players.player.name}
+                        {player.name}
                       </h3>
-                      <p>Player / {players.player.position}</p>
+                      <p>Player / {player.position}</p>
                   </div>
                     
                 
@@ -27,18 +28,18 @@ const Suggestions = () => {
             ))}
             
             
-            {Team.slice(0, 5).map((clubs) => (
-                <div key={clubs.team.id} className="details">
+            {team.slice(0, 5).map((club:Team) => (
+                <div key={club.id} className="details">
                   
                   <div className="image">
-                    <img src={clubs.team.logo} loading='lazy' /> 
+                    <img src={club.logo} loading='lazy' /> 
                  </div>
 
                   <div className="name">
                       <h3>
-                        {clubs.team.name}
+                        {club.name}
                       </h3>
-                      <p>club / {clubs.team.country}</p>
+                      <p>club / {club.country}</p>
                   </div>
                 </div> 
             ))}

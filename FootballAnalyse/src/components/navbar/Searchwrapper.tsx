@@ -1,11 +1,10 @@
-import  { useContext } from 'react'
+
 import Search from './Searchbar'
 import Suggestions from './Suggestions'
-import Context from '../../context/Context'
+import useFootball from '../../hooks/useFootball'
 const Searchwrapper = () => {
-    const {search} = useContext(Context)
+    const {search} = useFootball()
   return (
-    
     <div className='search-wraper'>
        <Search />
        {search.trim()!=='' && (

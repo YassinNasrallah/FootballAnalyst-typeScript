@@ -1,8 +1,8 @@
-import { useContext } from 'react'
-import Context from '../../context/Context'
+
 import { Search } from 'lucide-react';
+import useFootball from '../../hooks/useFootball';
 const Searchbar = () => {
-    const {search, handleChange} = useContext(Context)
+    const {search, handleChange} = useFootball()
   return (
     <div className='search-input'>
          <Search className='search-icon'/>

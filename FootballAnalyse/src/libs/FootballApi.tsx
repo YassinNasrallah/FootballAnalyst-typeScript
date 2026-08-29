@@ -1,9 +1,11 @@
+import type { Player } from "../models/Player"
+import { Team } from "../models/Team"
 
 
 const FootballApi = () => {
  const API_key = ''
  
- const _getplayers = async(search:string)=>{
+ const _getplayers = async(search:string):Promise<Player[]>=>{
     const result = await fetch(`https://v3.football.api-sports.io/players/profiles?&search=${search}`,{
         headers:{
             "x-apisports-key":API_key
@@ -14,7 +16,7 @@ const FootballApi = () => {
     return data.response
  }
 
- const _getteams = async(search:string) =>{
+ const _getteams = async(search:string):Promise<Team[]>=>{
       const result = await fetch(`https://v3.football.api-sports.io/teams?search=${search}`,{
         headers:{
             "x-apisports-key":API_key
