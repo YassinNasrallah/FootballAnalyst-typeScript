@@ -1,5 +1,5 @@
-import type { Player } from "../models/Player"
-import { Team } from "../models/Team"
+import type { Player } from "../models/PlayerModel"
+import { Team } from "../models/TeamModel"
 
 
 const FootballApi = () => {

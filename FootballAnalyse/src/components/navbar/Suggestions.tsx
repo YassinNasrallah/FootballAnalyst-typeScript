@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
-import type { Player } from '../../models/Player'
-import type { Team } from '../../models/Team'
+import type { Player } from '../../models/PlayerModel'
+import type { Team } from '../../models/TeamModel'
 import useFootball from '../../hooks/useFootball'
 const Suggestions = () => {
     const {team, players} = useFootball()
