@@ -1,6 +1,6 @@
 import type { Teamstype } from "../interface/TeamType";
 export class TeamModel {
-     team:Teamstype
+  team:Teamstype
 
   constructor(
    team:Teamstype

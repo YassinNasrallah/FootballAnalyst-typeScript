@@ -1,26 +1,28 @@
 import { useNavigate } from 'react-router-dom'
-import type { Player } from '../../models/PlayerModel'
-import type { Team } from '../../models/TeamModel'
-import useFootball from '../../hooks/useFootball'
-const Suggestions = () => {
-    const {team, players} = useFootball()
+import type { PlayerModel } from '../../models/PlayerModel'
+import type { TeamModel } from '../../models/TeamModel'
+  type SuggestionsProps = {
+    players: PlayerModel[];
+    teams: TeamModel[];
+};
+const Suggestions = ({ players, teams }: SuggestionsProps) => {
     const navigate = useNavigate()
   return (
      <div className="search-suggestion">
-            {players.slice(0, 5).map((player:Player) => (
-                <div key={player.id} className="details" onClick={()=>
-                  navigate(`/players/${player.id}`)
+            {players.slice(0, 5).map((player:PlayerModel) => (
+                <div key={player.player.id} className="details" onClick={()=>
+                  navigate(`/players/${player.player.id}`)
                 }>
                   
                   <div className="image">
-                    <img src={player.photo} loading='lazy' /> 
+                    <img src={player.player.photo} loading='lazy' /> 
                  </div>
 
                   <div className="name">
                       <h3>
-                        {player.name}
+                        {player.player.name}
                       </h3>
-                      <p>Player / {player.position}</p>
+                      <p>Player / {player.player.position}</p>
                   </div>
                     
                 
@@ -28,18 +30,18 @@ const Suggestions = () => {
             ))}
             
             
-            {team.slice(0, 5).map((club:Team) => (
-                <div key={club.id} className="details">
+            {teams.slice(0, 5).map((club:TeamModel) => (
+                <div key={club.team.id} className="details">
                   
                   <div className="image">
-                    <img src={club.logo} loading='lazy' /> 
+                    <img src={club.team.logo} loading='lazy' /> 
                  </div>
 
                   <div className="name">
                       <h3>
-                        {club.name}
+                        {club.team.name}
                       </h3>
-                      <p>club / {club.country}</p>
+                      <p>club / {club.team.country}</p>
                   </div>
                 </div> 
             ))}

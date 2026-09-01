@@ -5,9 +5,9 @@ export interface Score{
 
 export interface Scores{
      halftime: Score;
-    fulltime: Score;
-    extratime: Score;
-    penalty: Score;
+     fulltime: Score;
+     extratime: Score;
+     penalty: Score;
 }
 
 export interface Winner{

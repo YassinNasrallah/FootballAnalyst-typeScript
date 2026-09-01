@@ -1,8 +1,9 @@
 
 import { Search } from 'lucide-react';
-import useFootball from '../../hooks/useFootball';
+import useSearch from '../../hooks/useSearch';
+
 const Searchbar = () => {
-    const {search, handleChange} = useFootball()
+  const {search, handleChange} = useSearch() 
   return (
     <div className='search-input'>
          <Search className='search-icon'/>

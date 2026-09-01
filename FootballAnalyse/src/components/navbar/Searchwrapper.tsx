@@ -1,17 +1,22 @@
 
 import Search from './Searchbar'
 import Suggestions from './Suggestions'
-import useFootball from '../../hooks/useFootball'
+import useFootballSearch from '../../service/useFootballSearch'
+import useSearch from '../../hooks/useSearch'
 const Searchwrapper = () => {
-    const {search} = useFootball()
+    
+    const { players, teams} = useFootballSearch()
+     const {search} = useSearch()
   return (
-    <div className='search-wraper'>
-       <Search />
+    <div className='search-wraper'> 
+       <Search/>
        {search.trim()!=='' && (
-        <Suggestions />
+          <Suggestions
+              teams={teams} players={players}/>
        )}
 
     </div>
+    
   )
 }
 
