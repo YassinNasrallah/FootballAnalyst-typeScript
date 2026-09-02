@@ -3,7 +3,7 @@ import { TeamModel } from "../models/TeamModel"
 
 
 const FootballApi = () => {
- const API_key = 'bbf173f9ce928fa2fa132dc984fe75e3'
+ const API_key = 
  
  const _getplayers = async(search:string):Promise<PlayerModel[]>=>{
     const result = await fetch(`https://v3.football.api-sports.io/players/profiles?&search=${search}`,{
