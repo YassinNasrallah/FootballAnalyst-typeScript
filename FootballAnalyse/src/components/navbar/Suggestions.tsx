@@ -24,8 +24,6 @@ const Suggestions = ({ players, teams }: SuggestionsProps) => {
                       </h3>
                       <p>Player / {player.player.position}</p>
                   </div>
-                    
-                
                 </div> 
             ))}
             

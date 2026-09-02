@@ -4,12 +4,12 @@ import Suggestions from './Suggestions'
 import useFootballSearch from '../../service/useFootballSearch'
 import useSearch from '../../hooks/useSearch'
 const Searchwrapper = () => {
-    
-    const { players, teams} = useFootballSearch()
-     const {search} = useSearch()
+    const {search, handleChange} = useSearch()
+    const { players, teams} = useFootballSearch(search)
+     
   return (
     <div className='search-wraper'> 
-       <Search/>
+       <Search search={search} handleChange={handleChange}/>
        {search.trim()!=='' && (
           <Suggestions
               teams={teams} players={players}/>

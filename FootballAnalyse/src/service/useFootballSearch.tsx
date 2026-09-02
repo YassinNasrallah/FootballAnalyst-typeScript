@@ -2,34 +2,30 @@ import API from '../api/Api';
 import { useEffect, useState } from 'react';
 import  { PlayerModel } from "../models/PlayerModel";
 import  { TeamModel } from "../models/TeamModel";
-import useSearch from '../hooks/useSearch';
-import useDebounce from '../hooks/useDebounce';
 
-const useFootballSearch = () => {
+const useFootballSearch = (search:string) => {
     const [players, setPlayers] = useState<PlayerModel[]>([])
     const [teams, setTeams] = useState<TeamModel[]>([])
-    const searchresult = useSearch()
-    const debouncing = useDebounce(searchresult.search, 3000)
-     
+
     useEffect(()=>{
-      if(debouncing.trim() ===''){
+      if(search.trim() ===''){
         return
       }
-      async function fetchdata() {
-        const playerdata = await API._getplayers(debouncing)
-        setPlayers(playerdata)
-        console.log(players)
-        
-        const teamdata = await API._getteams(debouncing)
-        setTeams(teamdata)
-      }
-      fetchdata()
-    },[debouncing])
+     
+        const timer = setTimeout(async()=>{
+              const playerdata = await API._getplayers(search)
+             setPlayers(playerdata)
+             console.log(search) 
+
+             const teamdata = await API._getteams(search)
+            setTeams(teamdata)
+        },300)
+        return()=>clearTimeout(timer)
+    },[search])
 
     return{
       players,
       teams,
-      searchresult
     }
 }
 

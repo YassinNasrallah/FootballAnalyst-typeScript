@@ -1,9 +1,8 @@
 
 import { Search } from 'lucide-react';
-import useSearch from '../../hooks/useSearch';
+import type { Searchbarprops } from '../../interface/SearchType';
 
-const Searchbar = () => {
-  const {search, handleChange} = useSearch() 
+const Searchbar = ({search,handleChange}:Searchbarprops) => {
   return (
     <div className='search-input'>
          <Search className='search-icon'/>
