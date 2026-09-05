@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-import Context from "../../context/Context";
+
 import { useNavigate } from "react-router-dom";
 // import Swiper core and required modules
 import { Navigation, } from 'swiper/modules';
@@ -9,34 +8,32 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
-import useFootball from "../../hooks/useFootball";
+
+
+import useFootballBody from "../../hooks/useFootballBody";
+import type { MatcheModel } from "../../models/MatcheModel"
 
 
 
 const Lastmatches = () => {
-  const { matches } = useFootball();
+  const {matches} = useFootballBody()
   const navigate = useNavigate();
-
   return (
     <div className="lastMatches">
       <h2>Match results</h2>
-
-     
        <Swiper
       modules={[Navigation]}
       spaceBetween={50}
       slidesPerView={5}
              navigation
       >
-         {matches.slice(0, 9).map((match) => (
+         {matches?.slice(0, 9).map((match:MatcheModel) => (
         <SwiperSlide
           
-          key={match.fixture.id}
+          key={match.id.id}
           
         >
-          <div className="match-card" onClick={() => navigate(`/fixtures/${match.fixture.id}`)}>
-
-         
+          <div className="match-card" onClick={() => navigate(`/fixtures/${match.id.id}`)}>
           <h2>full time</h2>
           <div className="team">
             <img
@@ -48,7 +45,7 @@ const Lastmatches = () => {
             <h2>{match.teams.home.name.slice(0,6)}...</h2>
             
             <div className="result">
-              <h2>{match.goals.home}</h2>
+              <h2>{match.allgoals.fulltime.home}</h2>
             </div>
           </div>
 
@@ -64,7 +61,7 @@ const Lastmatches = () => {
             <h2>{match.teams.away.name.slice(0,6)}...</h2>
 
             <div className="result">
-              <h2>{match.goals.away}</h2>
+              <h2>{match.allgoals.fulltime.away}</h2>
             </div>
           </div>
           </div>

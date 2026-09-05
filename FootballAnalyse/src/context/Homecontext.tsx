@@ -1,8 +1,10 @@
 
 import { createContext } from "react"; 
-import type { MatcheModel } from "../models/MatcheModel";
+import type { MatcheModel } from "../models/MatcheModel"
+import type { TeamModel } from "../models/TeamModel";
  type HomecontextType = {
-       matche:MatcheModel[]
+       matches:MatcheModel[]
+       teams:TeamModel[]
  }
 
  const Homecontext = createContext<HomecontextType | undefined>(undefined)

@@ -1,16 +1,21 @@
-import type {Scores, Winner} from "../interface/MatchesType";
+import type {Scores,  Fixture, Teams} from "../interface/MatchesType";
 
 export class MatcheModel{
 
 allgoals:Scores
-winner:Winner
 
+id:Fixture
+teams:Teams
 constructor(
 allgoals:Scores,
-winner:Winner,
+
+id:Fixture,
+team:Teams
 )
 {
 this.allgoals = allgoals
-this.winner = winner
+
+this.id=id
+this.teams = team
 }
 }

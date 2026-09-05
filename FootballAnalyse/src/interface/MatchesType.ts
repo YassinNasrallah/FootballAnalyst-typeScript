@@ -1,8 +1,23 @@
+
+
 export interface Score{
        home:number | null;
        away:number | null
 }
-
+export interface Teams{
+      home: {
+       id: number,
+       name: string,
+       logo: string,
+       winner: boolean
+         },
+      away: {
+        id: number,
+        name: string,
+        logo: string,
+        winner: boolean
+        }
+}
 export interface Scores{
      halftime: Score;
      fulltime: Score;
@@ -10,7 +25,9 @@ export interface Scores{
      penalty: Score;
 }
 
-export interface Winner{
-      home:boolean,
-      away: boolean
+export interface Fixture {
+id: number,
+referee: string,
+timezone: string,
+date: string,
 }

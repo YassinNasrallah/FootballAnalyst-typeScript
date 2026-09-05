@@ -1,9 +1,10 @@
+import type { MatcheModel } from "../models/MatcheModel"
 import type { PlayerModel } from "../models/PlayerModel"
 import { TeamModel } from "../models/TeamModel"
 
 
 const FootballApi = () => {
- const API_key = 
+ const API_key = 'bbf173f9ce928fa2fa132dc984fe75e3'
  
  const _getplayers = async(search:string):Promise<PlayerModel[]>=>{
     const result = await fetch(`https://v3.football.api-sports.io/players/profiles?&search=${search}`,{
@@ -28,7 +29,7 @@ const FootballApi = () => {
             return data.response
  }
 
- const _getMatches = async() =>{
+ const _getMatches = async():Promise<MatcheModel[]> =>{
     const result = await fetch( `https://v3.football.api-sports.io/fixtures?team=541&league=2&season=2022`,{
          headers:{
             "x-apisports-key":API_key
