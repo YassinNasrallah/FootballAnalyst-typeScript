@@ -32,13 +32,7 @@ body{
     line-height: 1.5;
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
-      background-color: #080b10;
-  background-image: linear-gradient(
-        180deg,
-        rgba(22, 131, 255, 0.08),
-        transparent 250px
-    );
-    background-attachment: fixed;
+     background: white;
 
      
 
@@ -54,7 +48,7 @@ body{
 }
 
 .nav-container{
-    background: rgb(7, 7, 24);
+    background: rgb(54, 91, 255);
     display: flex;
     position: relative;
     padding:12px 50px ;
@@ -63,30 +57,22 @@ body{
     border-bottom: 1px solid var(--line);
     position: relative;
 }
-.nav-container::after{
-     content: '';
-    position: absolute;
-    bottom:  0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, transparent, #6ea8fe, transparent);
-}
+
 .navlinks{
     display: flex;
-    gap: 30px;
+    gap: 70px;
 }
-.navlinks li{
-    font-size: 14px;
+.navlinks a{
+    font-size: 18px;
     color: var(--nav-text);
     cursor: pointer;
-    font-weight: 300;
+    font-weight: 500;
     padding: 5px;
     border-bottom: 2px solid transparent;
     transition: all 0.3s ease;
     
 }
-.navlinks li:hover{
+.navlinks a:hover{
     border-bottom: 2px solid var(--bleuColor);
 }
 .logo {
@@ -153,10 +139,10 @@ body{
     
     width: 300px;
     height: 44px;
-    border: 1px solid var(--line);
+    border: 1px solid var(--hero-title);
     padding:13px;
     border-radius: 50px;
-    background: var(--nav-border);
+    background: transparent;
     color: var(--nav-text);
     outline: none;
     transition: border-color 0.2s ease;
@@ -165,49 +151,49 @@ body{
 .search-input input:focus{
     border-color: #6ea8fe;
 }
+.search-input input::placeholder{
+    color: white;
+}
 
 /*hero*/
 .hero{
-    margin: 50px;
     display: flex;
-    flex-direction: row-reverse;
-    width: 100%; 
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+.hero::after{
+    content: '';
+    position: absolute;
+    background: #00000065;
+      top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+}
+.hero >*{
+    z-index: 100;
 }
 .hero-content{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: left;
-    gap: 8px;
+    margin-left: 20px;
+    
 }
 .hero-content h1{
-   font-weight: 800;
-   font-size: 58px;
-   line-height: 1.0;
-   letter-spacing: 0.01em;
-   text-transform: uppercase;
-   
-   
+    margin-bottom: 10px;
+    width: 90%;
+    font-size: 40px;
+    font-weight: 300;
+    line-height: 50px;
 }
+.hero-content button{
+    background: #367eeb;
+    padding: 13px 18px;
+    border: none;
+     border-radius: 30px;
+     color: white;
+    font-size: 16px;
 
-.hero-content h2{
-    font-weight: 400;
-    font-size: 17px;
-    line-height: 1.5;
-    color: var(--hero-text);
-}
-.hero-content p{
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: rgb(45, 255, 255);
-    width: 70%;
-}
-.hero-image img{
-    width: 100%;
-    max-width: 80%;
-    height: 370px;
-    border-radius: 20px;
 }
 
 /*matches*/
@@ -251,14 +237,28 @@ body{
    color: #080b10;
    background: var(--bleuColor);
 }
-.lastMatches >h2{
+.section-hedear{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.section-hedear button{
+    cursor: pointer;
+  padding: 10px;
+color: #367eeb;
+background: transparent;
+border: 1px solid #367eeb;
+border-radius: 20px;
+}
+.section-hedear h2{
     font-weight: 800;
     font-size: 22px;
     letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--hero-title);
-    margin-bottom: 20px;
-    padding-bottom: 20px;
+    
+    color: black;
+    
+    
     padding-left: 14px;
   text-align: left;
 }
@@ -267,22 +267,18 @@ body{
     display: flex;
     flex-direction: column;
     gap: 10px;
-    background-image: linear-gradient(
-        180deg,
-        rgba(22, 131, 255, 0.08),
-        transparent 250px
-    );
+    
+    background: #0b59ce;
     background-attachment: fixed;
     padding: 30px;
-    border-radius: 20px;
-    border: 1px solid var(--line);
+    border-radius: 10px;
     height: 150px;
 }
 .match-card h2{
     font-size: 14px;
     font-weight: 300;
     text-align: left;
-    color: #707272;
+    
 }
 .team{
     display: flex;

@@ -26,8 +26,6 @@ export interface Scores{
 }
 
 export interface Fixture {
-id: number,
-referee: string,
-timezone: string,
-date: string,
+fixtureId: number ,
+
 }

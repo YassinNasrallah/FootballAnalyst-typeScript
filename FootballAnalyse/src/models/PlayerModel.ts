@@ -10,3 +10,4 @@ player:PlayerType
     this.player = player
 }
 }
+

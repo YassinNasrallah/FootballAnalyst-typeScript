@@ -13,27 +13,31 @@ import 'swiper/css/navigation';
 import useFootballBody from "../../hooks/useFootballBody";
 import type { MatcheModel } from "../../models/MatcheModel"
 
-
+import { fakeFixture } from "../../fakeData/Fakedata";
 
 const Lastmatches = () => {
   const {matches} = useFootballBody()
   const navigate = useNavigate();
   return (
     <div className="lastMatches">
-      <h2>Match results</h2>
+      <div className="section-hedear">
+         <h2>Match results</h2>
+         <button>See More</button>
+      </div>
+     
        <Swiper
       modules={[Navigation]}
       spaceBetween={50}
-      slidesPerView={5}
+      slidesPerView={3}
              navigation
       >
-         {matches?.slice(0, 9).map((match:MatcheModel) => (
+         {fakeFixture.slice(0, 9).map((match:MatcheModel) => (
         <SwiperSlide
           
-          key={match.id.id}
+          key={match.id.fixtureId}
           
         >
-          <div className="match-card" onClick={() => navigate(`/fixtures/${match.id.id}`)}>
+          <div className="match-card" onClick={() => navigate(`/fixtures/${match.id.fixtureId}`)}>
           <h2>full time</h2>
           <div className="team">
             <img
@@ -42,7 +46,7 @@ const Lastmatches = () => {
               loading="lazy"
             />
 
-            <h2>{match.teams.home.name.slice(0,6)}...</h2>
+            <h2>{match.teams.home.name}</h2>
             
             <div className="result">
               <h2>{match.allgoals.fulltime.home}</h2>
@@ -58,7 +62,7 @@ const Lastmatches = () => {
               loading="lazy"
             />
 
-            <h2>{match.teams.away.name.slice(0,6)}...</h2>
+            <h2>{match.teams.away.name}</h2>
 
             <div className="result">
               <h2>{match.allgoals.fulltime.away}</h2>
