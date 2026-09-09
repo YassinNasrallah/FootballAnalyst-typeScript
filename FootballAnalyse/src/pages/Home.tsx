@@ -1,15 +1,11 @@
-import Navigation from '../components/navbar/Navigation'
-import '../style/Home.css'
-import Header from '../components/header/Header'
-import Lastmatches from '../components/body/Lastmatches'
+import '../module/home/src/style/Home.css'
+import HomePage from '../module/home/src/layout/HomePage'
+
 
 const Home = () => {
-  
   return (
     <div className='main-container'>
-          <Navigation />
-          <Header />  
-          <Lastmatches />
+        <HomePage />
     </div>
   )
 }
