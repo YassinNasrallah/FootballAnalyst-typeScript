@@ -1,462 +1,155 @@
-# ⚽ FootballAnalyse
+# ⚽ Football Analyst
 
-A football analysis web application built with **React, TypeScript, OOP, and a Football API**.
+Football Analyst is a React + TypeScript single-page application for exploring football data, teams, players, and match results.
 
-The goal of this project is to practice building a real-world React application while applying **Object-Oriented Programming, TypeScript models, API integration, Context API, and custom React hooks**.
+The application uses the API-Football API to retrieve football data.
 
-> 🚧 **Project Status:** In Development
+## 🚀 Features
 
----
+### 🏠 Home Page
 
-## 🛠️ Technologies
+The Home page currently includes:
 
-* React
-* TypeScript
-* Vite
-* React Router
-* Context API
-* Object-Oriented Programming (OOP)
-* REST API
-* Custom React Hooks
-* CSS
-* Lucide React
+- Hero section.
+- Navigation.
+- Last Matches section.
+- Team cards.
+- Team search.
+- "Discover Players" action that takes users to the Players page.
 
----
+### ⚽ Last Matches
 
-## 📁 Project Structure
+The Home page displays the latest match results using football data retrieved from the API.
+
+The matches are displayed using reusable UI components.
+
+### 🏟️ Teams
+
+Users can:
+
+- Search for teams.
+- View team cards.
+- Explore teams through the Home page.
+- Navigate to the Players page through the "Discover Players" action.
+
+### 👤 Players Page
+
+The Players page has been started and is currently under development.
+
+Implemented so far:
+
+- Players page navigation.
+- Players page Hero section.
+
+More player features will be added later.
+
+## 🔎 Search
+
+A reusable Searchbar was implemented to support searching for football data.
+
+The Searchbar is shared between pages instead of creating a separate component for each page.
+
+Search functionality uses:
+
+- React state
+- Custom hooks
+- Debouncing
+- TypeScript
+- API services
+
+## 🏗️ Project Architecture
+
+The project was reorganized using a modular architecture.
 
 ```text
 src/
 │
-├── api/
-│   └── Api.ts
-│
 ├── components/
-│   └── navbar/
-│       ├── Navigation.tsx
-│       ├── Searchwrapper.tsx
-│       ├── Searchbar.tsx
-│       └── Suggestions.tsx
+│   └── Reusable global components
 │
-├── hooks/
-│   ├── useSearch.ts
-│   ├── useDebounce.ts
-│   └── useFootball.tsx
+├── libs/
+│   └── FootballApi
+│
+├── module/
+│   ├── home/
+│   ├── players/
+│   └── teams/
 │
 ├── service/
-│   └── useFootballSearch.ts
-│
-├── models/
-│   ├── PlayerModel.ts
-│   └── TeamModel.ts
-│
-├── pages/
-│   └── Home.tsx
+│   ├── players/
+│   ├── teams/
+│   └── matches/
 │
 ├── App.tsx
 └── main.tsx
-```
-
----
-
-# 🧱 OOP and Models
-
-The project uses TypeScript models to represent football data.
-
-### Player Model
-
-The `PlayerModel` describes the structure of player information received from the API.
-
-For example, a player can contain information such as:
-
-* ID
-* Name
-* Photo
-* Position
-* Team
-* Other player information
-
-### Team Model
-
-The `TeamModel` describes football club information.
-
-It can contain:
-
-* ID
-* Name
-* Country
-* Logo
-* Code
-* Other team information
-
-Using models helps TypeScript understand the structure of the API data and provides better type safety throughout the application.
-
----
-
-# 🌐 API Layer
-
-The project uses an API class to communicate with the football API.
-
-```text
-api/
-└── Api.ts
-```
-
-The API class is responsible for making requests and retrieving football data.
-
-Examples of API operations include:
-
-```text
-_getplayers()
-_getteams()
-_getMatches()
-_getMatchById()
-```
-
-The goal is to keep API communication separate from the UI components.
-
-```text
-React Components
-       ↓
-Custom Hooks
-       ↓
-API Class
-       ↓
-Football API
-```
-
-This makes the application easier to maintain and understand.
-
----
-
-# 🔍 Search System
-
-The search system is divided into several responsibilities instead of putting everything inside one component.
-
-```text
-Searchbar
-    ↓
-useSearch
-    ↓
-useDebounce
-    ↓
-useFootballSearch
-    ↓
-Api
-```
-
-This separation keeps the React components focused mainly on the UI.
-
----
-
-## 🔎 `useSearch`
-
-`useSearch` is a custom hook responsible for managing the search input.
-
-It stores:
-
-* The current search value
-* The input change handler
-
-Conceptually:
-
-```text
-User types
-    ↓
-handleChange
-    ↓
-search state
-```
-
-This allows the search input logic to be reused without putting the state directly inside the component.
-
----
-
-## ⏱️ `useDebounce`
-
-`useDebounce` prevents the application from making an API request every time the user presses a key.
-
-For example, without debounce:
-
-```text
-R       → API request
-Ro      → API request
-Ron     → API request
-Rona    → API request
-Ronaldo → API request
-```
-
-This can create unnecessary API requests.
-
-With debounce:
-
-```text
-Ronaldo
-   ↓
-wait
-   ↓
-user stops typing
-   ↓
-API request
-```
-
-The debounce delay can be configured, for example:
-
-```text
-500ms
-```
-
----
-
-# ⚽ `useFootballSearch`
-
-`useFootballSearch` connects the search system with the football API.
-
-Its responsibilities include:
-
-* Getting the search value
-* Using the debounced search value
-* Calling the player API
-* Calling the team API
-* Storing player results
-* Storing team results
-* Returning the search results
-
-The general flow is:
-
-```text
-Search value
-     ↓
-Debounce
-     ↓
-Debounced search
-     ↓
-API._getplayers()
-     ↓
-Player results
-
-Debounced search
-     ↓
-API._getteams()
-     ↓
-Team results
-```
-
-The hook returns:
-
-```text
-players
-teams
-search
-```
-
-so other parts of the application can use the results.
-
----
-
-# 🌍 Context API
-
-The project also uses **React Context** to share football-related state between components.
-
-Instead of passing data through many levels of components:
-
-```text
-Navigation
-   ↓
-Searchwrapper
-   ↓
-Searchbar
-```
-
-Context allows components to access shared data directly.
-
-The project contains a custom `useFootball` hook that provides access to the football context.
-
-Conceptually:
-
-```text
-Context Provider
-       ↓
-   useFootball()
-       ↓
-Shared football state
-```
-
-This can be used for values such as:
-
-* Search
-* Search handler
-* Players
-* Teams
-* Loading state
-* API instance
-
----
-
-# 🧩 Components
-
-## `Searchbar`
-
-The `Searchbar` component is responsible for displaying the search input.
-
-It uses the football context to access:
-
-```text
-search
-handleChange
-```
-
-The component focuses on displaying the UI rather than handling the API logic.
-
----
-
-## `Searchwrapper`
-
-`Searchwrapper` connects the search input and search suggestions.
-
-It uses:
-
-```text
-useFootballSearch()
-```
-
-and gets:
-
-```text
-search
-players
-teams
-```
-
-It then displays the suggestions when the user has entered a search value.
-
-```text
-Searchwrapper
-│
-├── Searchbar
-│
-└── Suggestions
-```
-
----
-
-## `Suggestions`
-
-`Suggestions` displays search results.
-
-It can display:
-
-### Players
-
-```text
-Player image
-Player name
-Position
-```
-
-### Teams
-
-```text
-Team logo
-Team name
-Country
-```
-
-The component can also use React Router to navigate to a player's page when a player is selected.
-
----
-
-# 🧭 React Router
-
-React Router is used for application navigation.
-
-For example, selecting a player can navigate to:
-
-```text
-/players/:id
-```
-
-This allows the application to have separate pages for football data.
-
----
-
-# 🎯 Architecture
-
-The project is organized so that different parts have different responsibilities.
-
-```text
-                 React Application
-                        │
-          ┌─────────────┴─────────────┐
-          ↓                           ↓
-      Components                   Context
-          │                           │
-          ↓                           ↓
-      Custom Hooks              Shared State
-          │
-          ↓
-      API Class
-          │
-          ↓
-     Football API
-```
-
-### Responsibilities
-
-| Part         | Responsibility                      |
-| ------------ | ----------------------------------- |
-| Components   | UI and presentation                 |
-| Models       | Data structure and TypeScript types |
-| Hooks        | React logic and reusable behavior   |
-| Context      | Shared application state            |
-| API Class    | API communication                   |
-| React Router | Navigation                          |
-
----
-
-# 🚧 Current Development
-
-The project is still under development.
-
-Current work includes:
-
-* Search functionality
-* Debounced API requests
-* Player search
-* Team search
-* Search suggestions
-* Context API
-* Player navigation
-* Football data models
-* API integration
-
-More football analysis features and pages will be added as development continues.
-
----
-
-# 🎓 What I'm Practicing
-
-This project is also a learning project focused on improving my understanding of:
-
-* React
-* TypeScript
-* OOP
-* Classes
-* Models
-* Custom Hooks
-* Context API
-* API integration
-* Async/Await
-* REST APIs
-* React Router
-* Component architecture
-* Separation of responsibilities
-* Type safety
-
----
-
-# 📌 Project Goal
-
-The goal of FootballAnalyse is not only to build a football application, but also to practice how to structure a larger React + TypeScript project using reusable components, custom hooks, models, API classes, and shared state.
-
-The project will continue to evolve as new football analysis features are implemented.
+Architecture responsibilities
+module → Code specific to a page or feature.
+components → Reusable components shared between modules.
+service → API requests and data fetching logic.
+libs → API client and external library configuration.
+hooks → Reusable React logic.
+models → TypeScript interfaces and data models.
+
+This architecture helps keep the application organized and avoids duplicating code between pages.
+
+🎨 UI Improvements
+
+The UI has been redesigned to create a more modern football-focused experience.
+
+Improvements include:
+
+Updated navigation.
+New Hero sections.
+Redesigned team cards.
+Improved match cards.
+Improved spacing and typography.
+Better page structure.
+Updated navigation links.
+🧭 Navigation
+
+The navigation was updated to connect the main sections of the application.
+
+Current navigation includes:
+
+Home
+Players
+Teams
+
+The Discover Players action on the Home page navigates users to the Players page.
+
+🛠️ Technologies
+React
+TypeScript
+Vite
+React Router
+Swiper
+Lucide React
+CSS
+API-Football
+📌 Project Status
+
+The project is currently under development.
+
+Completed
+ React + TypeScript setup
+ API integration
+ New modular architecture
+ Home page Hero
+ Navigation
+ Last Matches section
+ Team search
+ Team cards
+ Reusable Searchbar
+ Updated navigation links
+ UI redesign
+ Discover Players navigation
+ Players page Hero
+ Players page Navigation
+In Progress
+ Complete Players page
+ Player cards
+ Player statistics
+ Player search
+ Player details
+ Complete Teams page
+ More football features
