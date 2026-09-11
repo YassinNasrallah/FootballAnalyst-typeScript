@@ -1,20 +1,76 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-.playerspage-container{
-    display: flex;
-   
-}
-.playerspage-container .hero-content{
+
+.playerpage-hero-content{
+    position: absolute;
+    margin: auto;
     background-repeat: no-repeat;
     width: 100%;
-    height: 80vh;
+    max-width: 1440px;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    
     background-position:center;
     background-size: cover;
     background-image: url('../asset/playersBackground.png');
 }
-.hero-content h1{
-
+.playerpage-hero-content::after{
+   content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.664);
 }
+
+.playerspage-container .playerpage-hero-content>*{
+ z-index: 10;
+}
+.playerpage-hero-content h1{
+    font-size: 60px;
+    font-weight: 500;
+    word-spacing: 10px;
+    text-shadow: 0px 0px 10px black;
+}
+.playerpage-hero-content span{
+    color: #3f7ff7;
+}
+.playerpage-hero-content p{
+    font-size: 16px;
+    letter-spacing: 3px;
+}
+
+.playersSearch{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    position: relative;
+}
+
+.playersSearch input{
+    width: 300px;
+    height: 30px;
+    padding: 20px 10px;
+    background: rgb(37, 37, 37);
+    border: 1px solid rgb(107, 106, 106);
+    color: white;
+    outline: none;
+}
+.playersSearch button{
+    position: absolute;
+    right: 5px;
+    background: white;
+    border: none;
+    cursor: pointer;
+    padding: 3px;
+    border-radius: 4px;
+}
+.playersSearch input:focus{
+    border-color: white;
+    
+}
+
+
+
+

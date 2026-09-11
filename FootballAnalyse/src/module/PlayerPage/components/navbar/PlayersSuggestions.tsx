@@ -8,7 +8,7 @@ import { PlayerModel } from '../../models/PlayerModel';
 const PlayersSuggestions = ({ players }: SuggestionsProps) => {
     const navigate = useNavigate()
   return (
-     <div className="search-suggestion">
+     <div className=" Players-suggestion">
             {players.slice(0, 5).map((player:PlayerModel) => (
                 <div key={player.player.id} className="details" onClick={()=>{
                   navigate(`/teams/${player.player.id}`)

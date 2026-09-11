@@ -1,4 +1,4 @@
-import type { Teamstype } from "../interface/TeamType"
+import type { Teamstype } from "../../../interface/TeamType"
 export class TeamModel {
   team:Teamstype
 

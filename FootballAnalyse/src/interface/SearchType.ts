@@ -1,4 +1,4 @@
 export interface Searchbarprops{
-  search:string,
+   search:string,
    handleChange:(event:React.ChangeEvent<HTMLInputElement>)=>void
 }

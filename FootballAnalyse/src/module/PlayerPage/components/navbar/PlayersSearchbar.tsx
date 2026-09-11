@@ -1,10 +1,9 @@
-import { Search } from 'lucide-react';
-const PlayersSearchbar = () => {
+
+import type { Searchbarprops } from '../../../../interface/SearchType';
+const PlayersSearchbar = ({search, handleChange}:Searchbarprops) => {
   return (
-    <div className='player-search'>
-        <Search className='search-icon'/>
-        <input type="text" />
-      
+    <div>
+        <input type="text" placeholder='Search For Player' value={search} onChange={handleChange}/>
     </div>
   )
 }

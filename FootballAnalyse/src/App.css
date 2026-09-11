@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;500;600;700&display=swap');
+
+
+*{
+    box-sizing: border-box;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    
+}
+
+
+:root{
+   /*navigation*/
+   --nav-bag:#0d1117;
+   --nav-text:#f5f7fa;
+   --nav-text-muted:#8b9fa3;
+   --nav-border:#252c35;
+    /*hero*/
+    --hero-bg:#0b0f14;
+    --hero-title:#ffffff;
+    --hero-text:#9aa4b2;
+    --greenColor:rgb(2, 179, 2);
+    --bleuColor:rgb(54, 91, 255);
+    /*lines*/
+    --line:#262c33;
+
+}
+
+body{
+    
+    color: var(--hero-title);
+    font-size: 15px;
+    line-height: 1.5;
+    font-family: 'Roboto Condensed', sans-serif;
+    overflow-x: hidden;
+     background: rgb(224, 222, 222);
+
+     
+
+}
