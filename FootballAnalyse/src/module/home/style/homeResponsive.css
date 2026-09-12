@@ -1,0 +1,169 @@
+@media (max-width: 1440px) { 
+   .home-container{
+    width: 100%;
+   }
+   
+  
+  
+}
+
+/* Laptop */
+@media (max-width: 1024px) { 
+   .home-container{
+    width: 100%;
+   }
+  
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+   
+   .home-container{
+    width: 100%;
+   }
+   .lastMatches{
+     padding: 30px 10px;
+   }
+   .search-input{
+    display: none;
+   }
+   
+   .hero-content h1{
+    font-size: 30px;
+    line-height: 40px;
+   }
+   .hero-content button{
+     margin-top: 10px;
+     font-size: 14px;
+   }
+  
+   
+   .navlinks{
+    display: none;
+    flex-direction: column;
+   width: 100%;
+   
+   }
+   .hero-content{
+    font-size: 20px;
+   }
+   .menu-button{
+    display: flex;
+   }
+
+   
+
+  .navlinks.active{
+    display: flex;
+  }
+ 
+  .Players-container{
+    flex-direction: column;
+   margin: 0;
+   align-items: center;
+  }
+  .Players-container .content{
+    align-items: center;
+    
+  }
+  
+
+  .playersectionImage img{
+    max-width: 100%; 
+  }
+   
+ }
+
+/* Large Phone */
+@media (max-width: 480px) { 
+
+      .hero-content h1{
+    font-size: 30px;
+    line-height: 40px;
+   }
+   .hero-content button{
+     margin-top: 10px;
+     font-size: 14px;
+   }
+   .home-container{
+    width: 100%;
+   }
+   .lastMatches{
+     padding: 30px 40px;
+   }
+    .nav-container{
+        margin: auto;
+        width: 100%;
+    }
+   .search-input{
+    display: none;
+   }
+   .hero-content h1{
+    font-size: 20px;
+   }
+     .navlinks{
+    display: none;
+    flex-direction: column;
+    text-align: left;
+   width: 100%;
+    z-index: 100;
+    position: absolute;
+    top: 50px;
+    background: #0d0e10;
+    left: 0;
+   }
+   .menu-button{
+    display: flex;
+   }
+
+  .navlinks.active{
+    display:flex;
+  }
+}
+
+/* Small Phone */
+@media (max-width: 320px) {
+
+      .hero-content h1{
+    font-size: 30px;
+    line-height: 40px;
+   }
+   .hero-content button{
+     margin-top: 10px;
+     font-size: 14px;
+   }
+   .home-container{
+    width: 100%;
+   }
+   .lastMatches{
+     padding: 30px 40px;
+   }
+    .nav-container{
+        margin: auto;
+        width: 100%;
+    }
+     .hero-content h1{
+    font-size: 20px;
+   }
+   .search-input{
+    display: none;
+   }
+     .navlinks{
+    display: none;
+    flex-direction: column;
+    text-align: left;
+   width: 100%;
+    z-index: 100;
+    position: absolute;
+    top: 50px;
+    background: #0d0e10;
+    left: 0;
+   }
+   .menu-button{
+    display: flex;
+   }
+
+  .navlinks.active{
+    display: flex;
+  }
+ }

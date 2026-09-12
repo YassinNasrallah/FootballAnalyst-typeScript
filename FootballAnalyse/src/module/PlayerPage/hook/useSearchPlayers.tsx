@@ -1,16 +1,20 @@
 import { useEffect, useState } from "react"
 import { PlayerModel } from "../models/PlayerModel"
-import Getplayers from "../../../service/players/Getplayers"
+import { getSearchPlayers } from "../../../service/players/Getplayers"
 
 const useSearchPlayers = (search:string) => {
-    const {getPlayers} = Getplayers()
+
     const [players, setPlayers] = useState<PlayerModel[]>([])
     useEffect(()=>{
-        const fetchPlayers = async()=>{
-            const response = await getPlayers(search)
+      if(search.trim()===''){
+        return
+      }
+        const timer = setTimeout(async()=>{
+            const response = await getSearchPlayers(search)
+            console.log(response)
             setPlayers(response)
-        }
-        fetchPlayers()
+        },300)
+        return()=>clearTimeout(timer)
     },[search])
   return {
     players

@@ -3,9 +3,10 @@ import Lastmatches from '../components/body/Lastmatches'
 import Navigation from '../components/navbar/Navigation'
 import PlayersSection from '../components/body/PlayersSection'
 import '../style/Home.css'
+import '../style/homeResponsive.css'
 const HomePage = () => {
   return (
-    <div>
+    <div className='home-container'>
         <Navigation />
         <Header />
         <Lastmatches />
