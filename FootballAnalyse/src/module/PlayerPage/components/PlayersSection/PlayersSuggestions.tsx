@@ -5,13 +5,13 @@ import { PlayerModel } from '../../models/PlayerModel';
    
     players:PlayerModel[]
 };
-const PlayersSuggestions = ({ players }: SuggestionsProps) => {
+const PlayersSuggestions = ({players}:SuggestionsProps) => {
     const navigate = useNavigate()
   return (
-     <div className=" Players-suggestion">
+     <div className="Players-suggestion">
             {players.slice(0, 5).map((player:PlayerModel) => (
                 <div key={player.player.id} className="details" onClick={()=>{
-                  navigate(`/teams/${player.player.id}`)
+                  navigate(`/players/${player.player.id}`)
                 }}>
                   
                   <div className="image">
@@ -22,7 +22,7 @@ const PlayersSuggestions = ({ players }: SuggestionsProps) => {
                       <h3>
                         {player.player.name}
                       </h3>
-                      <p> / {player.player.position}</p>
+                    
                   </div>
                 </div> 
             ))}

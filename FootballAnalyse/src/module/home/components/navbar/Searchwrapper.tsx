@@ -1,5 +1,5 @@
 
-import Search from '../../../../components/Searchbar'
+import Search from '../../../../components/search/Searchbar'
 import Suggestions from './TeamsSuggestions'
 import usePlayersSearch from '../../hooks/usePlayersSearch'
 import useSearch from '../../hooks/useSearch'

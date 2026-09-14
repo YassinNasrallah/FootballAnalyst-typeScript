@@ -29,7 +29,23 @@ const Lastmatches = () => {
       modules={[Navigation]}
       spaceBetween={50}
       slidesPerView={3}
-             navigation
+            breakpoints={{
+               1440: {
+          slidesPerView:4
+          },
+          1024:{
+             slidesPerView:4
+          },
+          768 :{
+             slidesPerView:3
+          },
+          480:{
+            slidesPerView:2
+          },
+          320:{
+            slidesPerView:1
+          }
+            }}
       >
          {matches.slice(0, 3).map((match:MatcheModel) => (
         <SwiperSlide

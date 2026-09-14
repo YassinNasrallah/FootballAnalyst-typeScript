@@ -7,19 +7,36 @@ const TopSoccerscard = () => {
   
   
   return (
+    <>
+    
+    
     <div className="topsoccers-container">
-      {topSoccers?.slice(0, 5).map((player:PlayerModel)=>(
-
+      
+      {topSoccers.slice(0, 9).map((player:PlayerModel)=>(
         
-      <div className="" key={player.player.id}>
+      
+        
+      <div className="playerdetails" key={player.player.id}>
+        
          <img src={player.player.photo} alt="player-photo" loading="lazy" />
-         <h2>{player.player.name}</h2>
+        
+         <div>
+           <h2 className="player-name">{player.player.name}</h2>
+           <div className="player-state">
+            <h3 className="state">Goals: {player.statistics[0].goals.total}</h3>
+           <h3 className="state">Assist: {player.statistics[0].goals.assists}</h3>
+           <h3 className="state">Shots : {player.statistics[0].shots.total}</h3>
+           </div>
+          
+         </div>
+         
          
       </div>
-      
+     
       ))}
       
     </div>
+    </>
   )
 }
 

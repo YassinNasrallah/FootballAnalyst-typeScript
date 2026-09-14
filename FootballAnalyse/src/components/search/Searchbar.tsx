@@ -1,6 +1,6 @@
 
 import { Search } from 'lucide-react';
-import type { Searchbarprops } from '../interface/SearchType';
+import type { Searchbarprops } from '../../interface/SearchType';
 const Searchbar = ({search,handleChange}:Searchbarprops) => {
   return (
     <div className='search-input'>
