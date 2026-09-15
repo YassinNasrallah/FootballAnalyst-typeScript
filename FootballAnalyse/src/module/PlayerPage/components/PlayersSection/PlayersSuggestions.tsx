@@ -11,7 +11,7 @@ const PlayersSuggestions = ({players}:SuggestionsProps) => {
      <div className="Players-suggestion">
             {players.slice(0, 5).map((player:PlayerModel) => (
                 <div key={player.player.id} className="details" onClick={()=>{
-                  navigate(`/players/${player.player.id}`)
+                
                 }}>
                   
                   <div className="image">
@@ -20,8 +20,10 @@ const PlayersSuggestions = ({players}:SuggestionsProps) => {
 
                   <div className="name">
                       <h3>
-                        {player.player.name}
+                        {player.player.firstname}
                       </h3>
+
+                      <p>{player.statistics[0].goals.total}</p>
                     
                   </div>
                 </div> 

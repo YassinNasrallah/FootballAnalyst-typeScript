@@ -1,4 +1,4 @@
-const API_key = 'your-own-key'
+const API_key = ''
 const API_url = "https://v3.football.api-sports.io"
 export const FootballApi = async(endpoint:string) => {
     const result = await fetch(`${API_url}/${endpoint}`,{
@@ -10,3 +10,4 @@ export const FootballApi = async(endpoint:string) => {
         throw new Error('faild to fetch')
     } return result.json()
 }
+ 

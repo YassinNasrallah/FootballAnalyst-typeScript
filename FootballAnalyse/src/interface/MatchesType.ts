@@ -1,8 +1,8 @@
 
 
 export interface Score{
-       home:number ;
-       away:number 
+       home:number | null;
+       away:number | null 
 }
 export interface Teams{
       home: {

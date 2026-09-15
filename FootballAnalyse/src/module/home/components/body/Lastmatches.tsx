@@ -31,10 +31,10 @@ const Lastmatches = () => {
       slidesPerView={3}
             breakpoints={{
                1440: {
-          slidesPerView:4
+          slidesPerView:3
           },
           1024:{
-             slidesPerView:4
+             slidesPerView:3
           },
           768 :{
              slidesPerView:3
@@ -47,7 +47,7 @@ const Lastmatches = () => {
           }
             }}
       >
-         {matches.slice(0, 3).map((match:MatcheModel) => (
+         {matches.slice(0, 4).map((match:MatcheModel) => (
         <SwiperSlide
           
           key={match.id?.fixtureId}
@@ -65,7 +65,7 @@ const Lastmatches = () => {
             <h2>{match.teams.home.name}</h2>
             
             <div className="result">
-              <h2>{match.allgoals?.fulltime?.home}</h2>
+              <h2>{match.goals.home}</h2>
             </div>
           </div>
 
@@ -81,7 +81,7 @@ const Lastmatches = () => {
             <h2>{match.teams.away.name}</h2>
 
             <div className="result">
-              <h2>{match.allgoals?.fulltime?.away}</h2>
+              <h2>{match.goals.away}</h2>
             </div>
           </div>
           </div>
